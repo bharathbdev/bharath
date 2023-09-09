@@ -9,7 +9,7 @@ const config = {
 const jsOutput = Object.assign({}, config, {
   entry: ["./src/components/ImageGallery.jsx"],
   output: {
-    path: path.resolve(__dirname, "build"),
+    path: path.resolve(__dirname, "public"),
     filename: "image-gallery.js",
     library: "ImageGallery",
     globalObject: "this",
