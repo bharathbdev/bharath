@@ -1,262 +1,70 @@
-# React Image Gallery
+# Getting Started with Create React App
 
-[![npm version](https://badge.fury.io/js/react-image-gallery.svg)](https://badge.fury.io/js/react-image-gallery)
-[![Download Count](http://img.shields.io/npm/dm/react-image-gallery.svg?style=flat)](https://www.npmjs.com/package/react-image-gallery)
-[![Bundle size](https://badgen.net/bundlephobia/minzip/react-image-gallery)](https://bundlephobia.com/package/react-image-gallery)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### Live Demo (try it on mobile for swipe support)
+## Available Scripts
 
-[`linxtion.com/demo/react-image-gallery`](http://linxtion.com/demo/react-image-gallery)
+In the project directory, you can run:
 
-![demo gif](https://github.com/xiaolin/react-image-gallery/raw/master/static/image_gallery_v1.0.2.gif)
+### `npm start`
 
-React image gallery is a React component for building image galleries and carousels
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## Features
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-- Mobile swipe gestures
-- Thumbnail navigation
-- Fullscreen support
-- Custom rendered slides
-- RTL support
-- Responsive design
-- Tons of customization options (see props below)
+### `npm test`
 
-## Getting started
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-React Image Gallery requires **React 16.0.0 or later.**
+### `npm run build`
 
-```
-npm install react-image-gallery
-```
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-### Style import options
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-```
-# scss file import
-@import "~react-image-gallery/styles/scss/image-gallery.scss";
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-# css file import
-@import "~react-image-gallery/styles/css/image-gallery.css";
+### `npm run eject`
 
-# js file import (using webpack)
-import "react-image-gallery/styles/css/image-gallery.css";
-```
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-### Example
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Need more example? See [`example/app.js`](https://github.com/xiaolin/react-image-gallery/blob/master/example/app.js)
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-```js
-import ImageGallery from "react-image-gallery";
-// import stylesheet if you're not already using CSS @import
-import "react-image-gallery/styles/css/image-gallery.css";
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-const images = [
-  {
-    original: "https://picsum.photos/id/1018/1000/600/",
-    thumbnail: "https://picsum.photos/id/1018/250/150/",
-  },
-  {
-    original: "https://picsum.photos/id/1015/1000/600/",
-    thumbnail: "https://picsum.photos/id/1015/250/150/",
-  },
-  {
-    original: "https://picsum.photos/id/1019/1000/600/",
-    thumbnail: "https://picsum.photos/id/1019/250/150/",
-  },
-];
+## Learn More
 
-class MyGallery extends React.Component {
-  render() {
-    return <ImageGallery items={images} />;
-  }
-}
-```
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-# Props
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-- `items`: (required) Array of objects, see example above,
-  - Available Properties
-    - `original` - image src url
-    - `thumbnail` - image thumbnail src url
-    - `fullscreen` - image for fullscreen (defaults to original)
-    - `originalHeight` - image height (html5 attribute)
-    - `originalWidth` - image width (html5 attribute)
-    - `loading` - image loading. Either "lazy" or "eager" (html5 attribute)
-    - `thumbnailHeight` - image height (html5 attribute)
-    - `thumbnailWidth` - image width (html5 attribute)
-    - `thumbnailLoading` - image loading. Either "lazy" or "eager" (html5 attribute)
-    - `originalClass` - custom image class
-    - `thumbnailClass` - custom thumbnail class
-    - `renderItem` - Function for custom rendering a specific slide (see renderItem below)
-    - `renderThumbInner` - Function for custom thumbnail renderer (see renderThumbInner below)
-    - `originalAlt` - image alt
-    - `thumbnailAlt` - thumbnail image alt
-    - `originalTitle` - image title
-    - `thumbnailTitle` - thumbnail image title
-    - `thumbnailLabel` - label for thumbnail
-    - `description` - description for image
-    - `srcSet` - image srcset (html5 attribute)
-    - `sizes` - image sizes (html5 attribute)
-    - `bulletClass` - extra class for the bullet of the item
-- `infinite`: Boolean, default `true`
-  - infinite sliding
-- `lazyLoad`: Boolean, default `false`
-- `showNav`: Boolean, default `true`
-- `showThumbnails`: Boolean, default `true`
-- `thumbnailPosition`: String, default `bottom`
-  - available positions: `top, right, bottom, left`
-- `showFullscreenButton`: Boolean, default `true`
-- `useBrowserFullscreen`: Boolean, default `true`
-  - if false, fullscreen will be done via css within the browser
-- `useTranslate3D`: Boolean, default `true`
-  - if false, will use `translate` instead of `translate3d` css property to transition slides
-- `showPlayButton`: Boolean, default `true`
-- `isRTL`: Boolean, default `false`
-  - if true, gallery's direction will be from right-to-left (to support right-to-left languages)
-- `showBullets`: Boolean, default `false`
-- `showIndex`: Boolean, default `false`
-- `autoPlay`: Boolean, default `false`
-- `disableThumbnailScroll`: Boolean, default `false`
-  - disables the thumbnail container from adjusting
-- `disableKeyDown`: Boolean, default `false`
-  - disables keydown listener for keyboard shortcuts (left arrow, right arrow, esc key)
-- `disableSwipe`: Boolean, default `false`
-- `disableThumbnailSwipe`: Boolean, default `false`
-- `onErrorImageURL`: String, default `undefined`
-  - an image src pointing to your default image if an image fails to load
-  - handles both slide image, and thumbnail image
-- `indexSeparator`: String, default `' / '`, ignored if `showIndex` is false
-- `slideDuration`: Number, default `450`
-  - transition duration during image slide in milliseconds
-- `swipingTransitionDuration`: Number, default `0`
-  - transition duration while swiping in milliseconds
-- `slideInterval`: Number, default `3000`
-- `slideOnThumbnailOver`: Boolean, default `false`
-- `flickThreshold`: Number (float), default `0.4`
-  - Determines the max velocity of a swipe before it's considered a flick (lower = more sensitive)
-- `swipeThreshold`: Number, default `30`
-  - A percentage of how far the offset of the current slide is swiped to trigger a slide event.
-    e.g. If the current slide is swiped less than 30% to the left or right, it will not trigger a slide event.
-- `stopPropagation`: Boolean, default `false`
-  - Automatically calls stopPropagation on all 'swipe' events.
-- `startIndex`: Number, default `0`
-- `onImageError`: Function, `callback(event)`
-  - overrides onErrorImage
-- `onThumbnailError`: Function, `callback(event)`
-  - overrides onErrorImage
-- `onThumbnailClick`: Function, `callback(event, index)`
-- `onBulletClick`: Function, `callback(event, index)`
-- `onImageLoad`: Function, `callback(event)`
-- `onSlide`: Function, `callback(currentIndex)`
-- `onBeforeSlide`: Function, `callback(nextIndex)`
-- `onScreenChange`: Function, `callback(boolean)`
-  - When fullscreen is toggled a boolean is passed to the callback
-- `onPause`: Function, `callback(currentIndex)`
-- `onPlay`: Function, `callback(currentIndex)`
-- `onClick`: Function, `callback(event)`
-- `onTouchMove`: Function, `callback(event) on gallery slide`
-- `onTouchEnd`: Function, `callback(event) on gallery slide`
-- `onTouchStart`: Function, `callback(event) on gallery slide`
-- `onMouseOver`: Function, `callback(event) on gallery slide`
-- `onMouseLeave`: Function, `callback(event) on gallery slide`
-- `additionalClass`: String,
-  - Additional class that will be added to the root node of the component.
-- `renderCustomControls`: Function, custom controls rendering
-  - Use this to render custom controls or other elements on the currently displayed image (like the fullscreen button)
-  ```javascript
-    _renderCustomControls() {
-      return <a href='' className='image-gallery-custom-action' onClick={this._customAction.bind(this)}/>
-    }
-  ```
-- `renderItem`: Function, custom item rendering
-  - NOTE: Highly suggest looking into a render cache such as React.memo if you plan to override renderItem
-  - On a specific item `[{thumbnail: '...', renderItem: this.myRenderItem}]`
-  - As a prop passed into `ImageGallery` to completely override `renderItem`, see source for renderItem implementation
-- `renderThumbInner`: Function, custom thumbnail rendering
+### Code Splitting
 
-  - On a specific item `[{thumbnail: '...', renderThumbInner: this.myRenderThumbInner}]`
-  - As a prop passed into `ImageGallery` to completely override `_renderThumbInner`, see source for reference
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-- `renderLeftNav`: Function, custom left nav component
-  - See [`<LeftNav />`](https://github.com/xiaolin/react-image-gallery/blob/master/src/components/controls/LeftNav.js)
-  - Use this to render a custom left nav control
-  - Args:
-    - `onClick` callback that will slide to the previous item
-    - `disabled` boolean for when the nav is disabled
-  ```javascript
-  renderLeftNav: (onClick, disabled) => (
-    <LeftNav onClick={onClick} disabled={disabled} />
-  );
-  ```
-- `renderRightNav`: Function, custom right nav component
-  - See [`<RightNav />`](https://github.com/xiaolin/react-image-gallery/blob/master/src/components/controls/RightNav.js)
-  - Use this to render a custom right nav control
-  - Args:
-    - `onClick` callback that will slide to the next item
-    - `disabled` boolean for when the nav is disabled
-  ```javascript
-  renderRightNav: (onClick, disabled) => (
-    <RightNav onClick={onClick} disabled={disabled} />
-  );
-  ```
-- `renderPlayPauseButton`: Function, play pause button component
-  - See [`<PlayPause />`](https://github.com/xiaolin/react-image-gallery/blob/master/src/components/controls/PlayPause.js)
-  - Use this to render a custom play pause button
-  - Args:
-    - `onClick` callback that will toggle play/pause
-    - `isPlaying` boolean for when gallery is playing
-  ```javascript
-  renderPlayPauseButton: (onClick, isPlaying) => (
-    <PlayPause onClick={onClick} isPlaying={isPlaying} />
-  );
-  ```
-- `renderFullscreenButton`: Function, custom fullscreen button component
-  - See [`<Fullscreen />`](https://github.com/xiaolin/react-image-gallery/blob/master/src/components/controls/Fullscreen.js)
-  - Use this to render a custom fullscreen button
-  - Args:
-    - `onClick` callback that will toggle fullscreen
-    - `isFullscreen` argument for when fullscreen is active
-  ```javascript
-    renderFullscreenButton: (onClick, isFullscreen) => (
-      <Fullscreen onClick={onClick} isFullscreen={isFullscreen} />
-    ),
-  ```
-- `useWindowKeyDown`: Boolean, default `true`
-  - If `true`, listens to keydown events on window (window.addEventListener)
-  - If `false`, listens to keydown events on image gallery element (imageGalleryElement.addEventListener)
+### Analyzing the Bundle Size
 
-# Functions
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-The following functions can be accessed using [refs](https://reactjs.org/docs/refs-and-the-dom.html)
+### Making a Progressive Web App
 
-- `play()`: plays the slides
-- `pause()`: pauses the slides
-- `toggleFullScreen()`: toggles full screen
-- `slideToIndex(index)`: slides to a specific index
-- `getCurrentIndex()`: returns the current index
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-# Contributing
+### Advanced Configuration
 
-Each pull request (PR) should be specific and isolated to the issue you're trying to fix. Please do not stack features, chores, refactors, or enhancements in one PR. Describe your feature/implementation in the PR. If you're unsure whether it's useful or if it involves a major change, please open an issue first and seek feedback.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-- Follow eslint provided
-- Comment your code
-- Write [clean](https://github.com/ryanmcdermott/clean-code-javascript) code
+### Deployment
 
-# Build the example locally (requires node >= 12.13)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-```
-git clone https://github.com/xiaolin/react-image-gallery.git
-cd react-image-gallery
-npm install --global yarn
-yarn install
-yarn start
-```
+### `npm run build` fails to minify
 
-Then open [`localhost:8001`](http://localhost:8001) in a browser.
-
-# License
-
-MIT
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
